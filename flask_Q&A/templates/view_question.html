@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h1>{{ question.title }}</h1>
+    <p>{{ question.content }}</p>
+    <h2>Answers</h2>
+    <ul>
+        {% for answer in answers %}
+            <li>{{ answer.content }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Post an Answer</h2>
+    <form method="post" action="{{ url_for('post_answer', question_id=question.id) }}">
+        <textarea name="content" required></textarea>
+        <button type="submit">Submit Answer</button>
+    </form>
+{% endblock %}
